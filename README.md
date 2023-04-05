@@ -2,9 +2,12 @@
 
 This project scrapes liquidation events from Binance Liquidations Websocket feed and stores them in a PostgreSQL database. It uses Docker to manage the environment and dependencies.
 
-Just run `docker-compose up` to start the scraper.
+Usage:
 
-Start with example queries to use the results.
+- Create a .env file 
+- Run `docker-compose up`
+
+Start with example queries to see the results.
 
 ## TODO
 
