@@ -8,7 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
 
-
-# CMD [ "touch", "asd.sh" ]
-# ENTRYPOINT [ "python" ,"-m"]
-CMD ["python", "idle.py"]
+CMD ["python", "main.py"]
