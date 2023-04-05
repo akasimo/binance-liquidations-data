@@ -1,0 +1,8 @@
+{
+    "name": "Liquidation Scraper",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "scraper",
+    "workspaceFolder": "/app",
+    "shutdownAction": "stopCompose"
+  }
+  

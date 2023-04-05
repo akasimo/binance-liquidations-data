@@ -6,6 +6,9 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY . /app
 
-CMD ["python", "main.py"]
+
+# CMD [ "touch", "asd.sh" ]
+# ENTRYPOINT [ "python" ,"-m"]
+CMD ["python", "idle.py"]

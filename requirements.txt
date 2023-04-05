@@ -1,0 +1,5 @@
+ccxt
+SQLAlchemy
+websocket-client
+python-dotenv
+psycopg2
