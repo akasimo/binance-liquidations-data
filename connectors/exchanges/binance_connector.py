@@ -24,7 +24,14 @@ class BinanceConnector(ExchangeConnector):
     def on_message(self, _, message):
         msg = json.loads(message)
         if 'e' in msg and msg['e'] == 'forceOrder':
-            print(f"Liquidation: {msg}")
+            price = float(msg['o']['p'])
+            amount = float(msg['o']['q'])
+            usd_value = price * amount
+            symbol = msg['o']['s']
+            side = msg['o']['S']
+            now = datetime.now()
+            if usd_value > 10:
+                print(f"{now} - Liquidation: {usd_value:.0f} {symbol} {side} {price}")
             self.store_liquidation_data(msg)
         elif 'code' in msg and 'msg' in msg:
             print(f"Error code {msg['code']}: {msg['msg']}")

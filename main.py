@@ -5,4 +5,5 @@ def main():
     binance_connector.subscribe_liquidations_stream()
 
 if __name__ == "__main__":
+    print("Starting liquidations stream...")
     main()
