@@ -18,8 +18,9 @@ class BinanceConnector(ExchangeConnector):
     def on_close(self, _):
         print("WebSocket connection closed")
 
-    def on_error(self, _, error):
+    def on_error(self, ws, error):
         print(f"WebSocket error: {error}")
+        ws.close()
 
     def on_message(self, _, message):
         msg = json.loads(message)
@@ -47,13 +48,6 @@ class BinanceConnector(ExchangeConnector):
                                     on_message=self.on_message,
                                     on_ping=self.on_ping)
         ws.run_forever(ping_interval=60, ping_timeout=15)
-
-    def on_ping(self, ws, message=None):
-        """Ping handler for websocket connection
-        """        
-        # Automatically sends a pong frame when a ping is received
-        # ws.pong()
-        ws.send("pong")
 
     def subscribe_liquidations_stream(self):
         while True:
